@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-component组件初始</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+	
+	<body>
+		<h1>v-component组件初始</h1>
+		<hr />
+		<div id="app">
+			<js-pang></js-pang>
+			<zhuPan :here="message"></zhuPan>
+		</div>
+		<script type="text/javascript">
+		  //注册全局组件
+	    Vue.component('jsPang',{
+	    	  template: `<div style="color:red;">全局化注册的jspang标签</div>`
+	    })
+		var app=new Vue({
+			
+			el:"#app",
+			data:{
+				message:"四川"
+			},
+			////注册局部组件
+			components:{
+				"zhupan":{
+					template:`<div style="color:blue;">熊猫来自{{here}}</div>`,
+					props:["here"]
+				}
+			}
+		})
+	
+		</script>
+	</body>
+	
+
+
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on</title>
+		<script type="text/javascript" src="../assets/js/vue.js" ></script>
+	</head>
+	<body>
+		<h1>v-on 实例</h1>
+		<hr />
+		<div id="app" >
+			<p>{{num}}</p>
+			<button @click="Add">Add</button>
+			
+		</div>
+		<p><button onclick="reduce()">减</button></p>
+			<p><button onclick="reduceonce()">减一次</button></p>
+		<p><button onclick="off()">off</button></p>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:"#app",
+				data:{
+					num:1,
+				},
+				methods:{
+					Add(){
+						this.num++;
+					}
+				}
+			});
+		
+			app.$on("reduce",function(){
+				console.log("执行了reduce")
+				this.num--;
+			})
+			function reduce(){
+				app.$emit("reduce")
+			}
+				app.$once('reduceOnce',function(){
+			    console.log('只执行一次的方法');
+			    this.num--;
+			 
+			});
+			function reduceonce(){
+				app.$emit("reduceOnce")
+			}
+
+			//关闭事件
+			function off(){
+			   app.$off('reduce');
+			}
+		</script>
+	</body>
+</html>

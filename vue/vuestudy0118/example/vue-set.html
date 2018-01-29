@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-set</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-set全局设置</h1>
+		<hr />
+		<div id="app">
+			<p>{{count}}</p>
+			<button onclick="Add()">Add</button>
+		</div>
+		<script type="text/javascript">
+		var outdata={
+			count:1,
+			goods:"langweixian"
+		};
+		function Add(){
+			app.count++;
+			Vue.set(outdata,"count",12);
+			
+		}
+			var app=new Vue({
+				el:"#app",
+				data:outdata
+			});
+		</script>
+	</body>
+
+</html>

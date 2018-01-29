@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-extend 构造器</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-extend 扩展实例构造器</h1>
+		<hr />
+	    <author></author>
+		<script type="text/javascript">
+
+			var extend=Vue.extend({
+				template:"<p><a :href='authorUrl'>{{anthorName}}</a></p>",
+				data:function(){
+					return {
+						anthorName:"JSPang",
+						authorUrl:"http://JSPang.com"
+					}
+				}
+			});
+			new extend().$mount("author")
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="viewport">
+		<title>v-PropsData数据传递</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-PropsData数据传递</h1>
+		<hr />
+		<div id="app">
+			
+		</div>
+		<script type="text/javascript">
+		var header=Vue.extend({
+			template:`<p>{{message}}--{{a}}</p>`,
+			data:function(){
+				return{
+				message:"hello zhupan"
+				}
+			},
+			props:['a']
+		});
+		new header({propsData:{a:1}}).$mount('#app');
+//			var app = new Vue({
+//				el: "#app",
+//
+//			})
+		</script>
+	</body>
+
+</html>

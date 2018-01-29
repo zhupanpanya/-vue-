@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on</title>
+		<script type="text/javascript" src="../assets/js/vue.js" ></script>
+	</head>
+	<body>
+		<h1>v-on 事件绑定</h1>
+		<hr />
+		<div id="app">
+			本场比赛得分：{{score}}
+			<p>
+				<button v-on:click="scoreAdd">加分</button>
+			</p>
+			<p>
+				<button v-on:click="scoreSto">减分</button>
+			</p>
+			<p>
+				<input type="text" v-on:keyup.enter="scoreAdd" v-model:value='score2'>
+			</p>
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:"#app",
+				data:{
+					score:0,
+					score2:1
+				},
+				methods:{
+					scoreAdd:function(){
+						this.score=parseInt(this.score2)+this.score;
+						this.minscore();
+					},
+					scoreSto:function(){
+						this.score=this.score-parseInt(this.score2);
+						this.minscore();
+					},
+					minscore:function(){
+						var scores=this.score;
+						if(this.score<=0){
+							this.score=0;
+						}
+						return scores;
+					}
+				}
+			})
+		</script>
+	</body>
+</html>

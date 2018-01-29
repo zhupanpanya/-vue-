@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-set</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-watch监听</h1>
+		<hr />
+		<div id="app">
+			<p>温度：{{wendu}}℃</p>
+			<p>穿衣建议：{{advice}}</p>
+			<button @click="Add">升高温度</button>
+			<button @click="odd" @>减少温度</button>
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#app",
+				data: {
+					wendu: 14,
+					advice:"夹克"
+				},
+				
+				methods: {
+					Add() {
+						this.wendu++;
+					},
+					odd(){
+						this.wendu--;
+					}
+				},
+				watch:{
+					wendu(newVal,oldVal){
+							if(newVal>20){
+					this.advice="短袖"	
+					}
+					else if(newVal<5){
+						this.advice="棉袄"
+					}
+					else{
+						this.advice="夹克"
+					}
+					}
+				
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

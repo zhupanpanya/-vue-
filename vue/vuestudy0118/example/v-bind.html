@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on</title>
+		<script type="text/javascript" src="../assets/js/vue.js" ></script>
+	<style>
+		.classA{
+			color:red
+		}
+		.classB{
+			font-size: 30px;
+			
+		}
+	</style>
+	</head>
+	<body>
+		<h1>v-bind 事件绑定</h1>
+		<hr />
+		<div id="app">
+		<img v-bind:src="imgSrc"/>	
+		<p>
+		<a :href="webUrl" >跳转</a>
+        </p>
+        <p :class="classname">绑定class</p>
+        <p :class="{classA:isOk}">绑定class中判断</p>
+        <p :class="{classA,classB}">绑定class数组</p>
+        <p :class="isOk?classA:classB">绑定class中的三元运算表达式</p>
+        <p :style="{color:blue,background:yellow}">绑定style</p>
+        <p :style="styleObject">用对象绑定style样式</p>
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:"#app",
+				data:{
+					imgSrc:"https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516335680473&di=9d7651380c1459f25984b559d3fe4508&imgtype=0&src=http%3A%2F%2Fe.hiphotos.baidu.com%2Fimage%2Fpic%2Fitem%2F500fd9f9d72a6059099ccd5a2334349b023bbae5.jpg",
+					webUrl:"www.baidu.com",
+					classname:"classA",
+					isOk:false,
+					classA:"classA",
+					classB:"classB",
+					blue:"blue",
+					yellow:"yellow",
+					styleObject:{
+						fontSize:"30px",
+						color:"white",
+						background:"black"
+						
+					}
+				}
+			
+			})
+		</script>
+	</body>
+</html>

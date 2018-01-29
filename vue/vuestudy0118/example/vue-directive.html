@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-directive自定义指令</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-directive自定义指令</h1>
+		<hr />
+		<div id="app">
+			<div v-jspang="color">{{num}}</div>
+			<p><button @click="add">ADD</button></p>
+			<p><button @click="unbind">解绑</button></p>
+		</div>
+		<script type="text/javascript">
+			//			Vue.directive("jspang", function(el, bingding) {
+			//					//			console.log(el);
+			//					//			console.log(bingding);
+			//					
+			//					el.style = "color:" + bingding.value;
+			//				}) //两个参数，
+			Vue.directive("jspang", {
+					bind: function() { //被绑定
+						console.log('1 - bind');
+					},
+					inserted: function() { //绑定到节点
+						console.log('2 - inserted');
+					},
+					update: function() { //组件更新
+						console.log('3 - update');
+					},
+					componentUpdated: function() { //组件更新完成
+						console.log('4 - componentUpdated');
+					},
+					unbind: function() { //解绑
+							console.log('5 - unbind');
+						}
+						//el.style = "color:" + bingding.value;
+				}) //两个参数，
+
+			var app = new Vue({
+				el: "#app",
+				data: {
+					num: 0,
+					color: "red"
+				},
+				methods: {
+					add() {
+						this.num++
+					},
+					unbind(){
+						app.$destroy();
+					}
+				}
+			})
+		</script>
+	</body>
+
+</html>

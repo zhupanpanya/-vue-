@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-component父子组件关系</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+	
+	<body>
+		<h1>v-component父子组件关系</h1>
+		<hr />
+		<div id="app">
+			<zhuPan></zhuPan>
+			<!--<zhuPan1></zhuPan1>-->
+		</div>
+		<script type="text/javascript">
+		  var zhupan1={
+	    	template:`<div style="color:blue;">我外部组件2</div>`
+	    };
+	    var zhupan={
+	    	template:`<div style="color:blue;">我外部组件1<zhupan1></zhupan1></div>`,
+	    	components:{
+				"zhupan1":zhupan1,
+			}
+	    };
+	    
+		var app=new Vue({
+			
+			el:"#app",
+			////注册局部组件
+			components:{
+				"zhupan":zhupan,
+				"zhupan1":zhupan1,
+			}
+		})
+	
+		</script>
+	</body>
+	
+
+
+</html>

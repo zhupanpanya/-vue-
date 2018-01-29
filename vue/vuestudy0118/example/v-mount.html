@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-mount方法</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-mount方法</h1>
+		<hr />
+		<div id="app">
+			{{message}}
+		</div>
+		<script type="text/javascript">
+		var jspang=Vue.extend({
+					template:`<p>I am {{message}}</p>`,
+					data(){
+						return {
+							message:"jsPang"
+						}
+					}
+			});
+			var vm=new jspang().$mount("#app");
+		</script>
+	</body>
+
+</html>

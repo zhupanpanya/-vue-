@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>v-on</title>
+		<script type="text/javascript" src="../assets/js/vue.js" ></script>
+	</head>
+	<body>
+		<h1>v-on 实例</h1>
+		<hr />
+		<div id="app" >
+			<jsPang>
+				<span slot="borUrl">{{jsPangData.borUrl}}</span>
+				<span slot="netName">{{jsPangData.netName}}</span>
+				<span slot="skill">{{jsPangData.skill}}</span>
+			</jsPang>
+		</div>
+		<template id="tmp">
+			<div>
+				<p>博客地址：<slot name="borUrl"></slot></p>
+				<p>博客昵称：<slot name="netName"></slot></p>
+				<p>技术类型：<slot name="skill"></slot></p>
+			</div>
+		</template>
+		<script type="text/javascript">
+		var data={
+			jsPangData:{
+				borUrl:"http://jspang.com",
+				netName:"技术胖",
+				skill:"前端"
+			}
+		};
+		var jspang={
+			template:"#tmp"
+		};
+			var app=new Vue({
+				el:"#app",
+				data:data,
+				methods:{
+					Add(){
+						this.num++;
+					}
+				},
+				components:{
+					"jspang":jspang
+				}
+			});
+		
+		</script>
+	</body>
+</html>

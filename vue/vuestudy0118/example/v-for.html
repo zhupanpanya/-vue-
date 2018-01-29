@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="viewport">
+		<title>v-for</title>
+		<script type="text/javascript" src="../assets/js/vue.js" ></script>
+	</head>
+	<body>
+		<h1>v-for</h1>
+		<hr />
+		<div id="app">
+			<ul>
+				<li v-for="item in sortitem" >
+					{{item}}
+				</li>
+			</ul>
+			<ul>
+				<li v-for="(item,index) in stubyage" >
+					{{index}}、{{item.name}}{{item.age}}
+				</li>
+			</ul>
+		</div>
+		<script type="text/javascript">
+			var app=new Vue({
+				el:"#app",
+				data:{
+					items:[1,2,3,4,58,41,21],
+					students:[
+					{"name":"zhupan","age":"18"},
+					{"name":"wunan","age":"30"},
+					{"name":"laowang","age":"24"},
+					{"name":"laoli","age":"25"},
+					
+					]
+				},
+				computed:{
+					sortitem:function(){
+						return this.items.sort(sortnumber);
+					},
+					stubyage:function(){
+						return sortBykey(this.students,'age');
+					}
+				}
+			});
+			function sortnumber(a,b){
+				return a-b;
+			}
+		  //数组对象方法排序
+           function sortBykey(arrey,key){
+           	var aa=arrey.sort(function(a,b){
+           		var x=a[key];
+           		var y=b[key];
+           		return ((x<y)?-1:(x>y)?1:0);
+           	})
+           	return aa;
+           
+           }
+		</script>
+	</body>
+</html>

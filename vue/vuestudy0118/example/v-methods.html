@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-set</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+	<script type="x-template" id="dd3">
+	<h2 style="color:#FF0000">我是script模板</h2>
+	</script>
+	<script type="x-template" id="dd4">
+	<h2 style="color:green">我是script模板</h2>
+	</script>
+<!--<template id="db2">
+	<h2 style="color：red">我是标签模板</h2>
+</template>-->
+	<body>
+		<h1>v-set全局设置</h1>
+		<hr />
+		<div id="app">
+			<p>{{message}}</p>
+			<button @click="Add">Add</button>
+			<btn @click.native="Add">Add组件</btn>
+		</div>
+		<button onclick="app.Add()">Add外部</button>
+		<script type="text/javascript">
+		var btn={
+			template:"<button>Add</button>"
+		}
+		var app=new Vue({
+			el:"#app",
+		data:{
+			message:1
+		},
+		components:{
+			"btn":btn
+		},
+		methods:{
+			Add(){
+				this.message++;
+			}
+		}
+     
+		})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta charset="viewport">
+		<title>v-PropsData数据传递</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+
+	<body>
+		<h1>v-PropsData数据传递</h1>
+		<hr />
+		<div id="app">
+			{{newprice}}
+		</div>
+		<script type="text/javascript">
+		
+			var app = new Vue({
+				el: "#app",
+				data:{
+					price:1
+				},
+				computed:{
+					newprice(){
+						return this.price = "￥" + this.price+"元";
+					}
+				}
+
+			})
+		</script>
+	</body>
+
+</html>

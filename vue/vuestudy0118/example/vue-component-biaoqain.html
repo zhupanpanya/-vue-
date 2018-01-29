@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-component标签</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+	</head>
+	
+	<body>
+		<h1>v-component标签</h1>
+		<hr />
+		<div id="app">
+			<component :is="who"></component>
+			<button @click="changeComponent">changeComponent</button>
+		</div>
+		<script type="text/javascript">
+		var A={
+			template:`<p style="color:red">componentA</p>`
+		};
+		var B={
+			template:`<p style="color:blue">componentB</p>`
+		};
+		var C={
+			template:`<p style="color:pink">componentC</p>`
+		}
+		var app=new Vue({
+			
+			el:"#app",
+			data:{
+				who:"A"
+			},
+			////注册局部组件
+			components:{
+				"A":A,
+				"B":B,
+				"C":C
+			},
+			   methods:{
+                changeComponent:function(){
+                    if(this.who=='A'){
+                        this.who='B';
+                    }else if(this.who=='B'){
+                        this.who='C';
+                    }else{
+                        this.who='A';
+                    }
+                }
+            }
+		})
+	
+		</script>
+	</body>
+	
+
+
+</html>

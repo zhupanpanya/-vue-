@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>v-set</title>
+		<script type="text/javascript" src="../assets/js/vue.js"></script>
+		<script type="text/javascript" src="../assets/js/jquery-1.8.3.min.js"></script>
+	</head>
+
+	<body>
+		<h1>Early Examples Demo</h1>
+		<hr />
+		<div id="app">
+		</div>
+		<script type="text/javascript">
+			var app = new Vue({
+				el: "#app",
+				data: {
+					message: "hello 123"
+				},
+				mounted() {
+					$("#app").html("我是jquery")
+				},
+				methods: {
+					add: function() {
+						console.log("调用了Add方法");
+					}
+				}
+
+			})
+
+			app.add();
+		</script>
+	</body>
+
+</html>
